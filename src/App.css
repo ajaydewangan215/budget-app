@@ -249,6 +249,9 @@ We hide :before pseudo-element on :active
   .form-wrapper, .balance-box, .transaction-list{
     width: 26rem;
   }
+  .balance-box{
+    font-size: 85%;
+  }
 }
 
 @media (max-width: 470px) {
@@ -257,5 +260,8 @@ We hide :before pseudo-element on :active
   }
   .form-wrapper, .balance-box, .transaction-list{
     width: 23rem;
+  }
+  .balance-box{
+    font-size: 80%;
   }
 }
