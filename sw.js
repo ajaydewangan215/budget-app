@@ -9,15 +9,16 @@
 // );
 
 // install service worker
-let CACHE_NAME = 'site-static'
+let CACHE_NAME = 'site-static-v1'
 let assets = [
     '/',
-    '/budget-app/',
     '/static/js/bundle.js',
     '/static/js/main.chunk.js',
     '/static/js/vendors~main.chunk.js',
     '/favicon.ico',
-    '/logo192.png'
+    '/logo192.png',
+    '/manifest.json',
+    'static/media/delete.604f17ae.svg'
 ]
 
 this.addEventListener('install', event => {
@@ -35,16 +36,42 @@ this.addEventListener('install', event => {
 // activate service worker
 this.addEventListener('activate', event => {
     console.log('Service worker has been Activated')
+    event.waitUntil(
+        caches.keys().then(keys => {
+            console.log(keys);
+            return Promise.all(keys
+                .filter(key => key !== CACHE_NAME)
+                .map(key => caches.delete(key))
+            )
+        })
+    )
+    return self.clients.claim()
 })
 
 
 // fetch event
-this.addEventListener('fetch', (event) => {
-    console.log(event.request.url)
-    event.respondWith(
-        caches.match(event.request).then((response) => {
-            console.log(response)
-            return response || fetch(event.request)
-        })
-    );
+this.addEventListener('fetch', event => {
+    if(!navigator.onLine) {
+        // console.log(event.request.url)
+        event.respondWith(
+            caches.match(event.request).then((response) => {
+                // console.log('fetch caches')
+                return response || fetch(event.request).catch(e => console.log('Error matching cache', e))
+            })
+        );
+    }
 });
+
+// self.addEventListener('fetch', function(event) {
+//     event.respondWith(async function() {
+//        try{
+//          var res = await fetch(event.request);
+//          var cache = await caches.open('cache');
+//          cache.put(event.request.url, res.clone());
+//          return res;
+//        }
+//        catch(error){
+//          return caches.match(event.request);
+//         }
+//       }());
+//   });
