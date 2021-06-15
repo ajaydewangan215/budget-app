@@ -116,7 +116,7 @@ button[type="submit"]{
   border-radius: .2rem;
   text-align: initial;
   padding: 4px 10px;
-  width: 100%;
+  /* width: 100%; */
   margin: 4px 0;
 }
 .list-item span:first-child{
@@ -240,4 +240,22 @@ We hide :before pseudo-element on :active
   -moz-transition-delay: 0s;
   -o-transition-delay: 0s;
   transition-delay: 0s;
+}
+
+@media (max-width: 575px) {  
+  body, html { 
+    font-size: 90%;
+  }
+  .form-wrapper, .balance-box, .transaction-list{
+    width: 26rem;
+  }
+}
+
+@media (max-width: 470px) {
+  body, html { 
+    font-size: 85%;
+  }
+  .form-wrapper, .balance-box, .transaction-list{
+    width: 23rem;
+  }
 }
