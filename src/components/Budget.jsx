@@ -7,7 +7,7 @@ import AppContextProvider from '../context/AppContext'
 const Budget = () => {
     return (
         <AppContextProvider>
-            <div className="container">
+            <div className="container">                
                 <h1>Budget App</h1>
                 <Balance />
                 <AddTransaction />

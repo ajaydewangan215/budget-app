@@ -2,7 +2,7 @@ import React, { createContext, useReducer, useEffect } from 'react'
 import { AppReducer } from './AppReducer'
 
 const initialState = {
-    items:JSON.parse(localStorage.getItem('budgetlist')) || []
+    items:JSON.parse(localStorage.getItem('budgetlist')) || [] 
 }
 // Create a Context
 export const BudgetContext = createContext()
@@ -11,7 +11,6 @@ export const BudgetContext = createContext()
 
 const AppContextProvider = ({children}) => {
     const [state, dispatch] = useReducer(AppReducer, initialState)  
-    
     const  AddData = data => {
         dispatch({
             type:"ADD_TRANSACTION",
@@ -31,9 +30,9 @@ const AppContextProvider = ({children}) => {
             type:"DELETE_ALL"
         })
     }
-
+   
     useEffect(() => {
-        localStorage.setItem("budgetlist",JSON.stringify(state.items))        
+        localStorage.setItem("budgetlist",JSON.stringify(state.items))                
     }, [state.items])
 
     return (
