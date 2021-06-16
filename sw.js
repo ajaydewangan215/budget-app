@@ -21,14 +21,14 @@ if( this.location.hostname === 'localhost'){
         '/favicon.ico',
         '/logo192.png',
         '/manifest.json',
-        'static/media/delete.604f17ae.svg'
+        '/static/media/delete.604f17ae.svg'
     ]
 } else {
     assets = [
         '/',        
         '/budget-app/static/css/main.46b4e021.chunk.css',
         '/budget-app/static/js/2.44609498.chunk.js',
-        '/budget-app/static/js/main.23950579.chunk.js',
+        '/budget-app/static/js/main.9e9bfe7c.chunk.js',
         '/budget-app/favicon.ico',
         '/budget-app/logo192.png',
         '/budget-app/manifest.json',
