@@ -11,16 +11,29 @@
 // install service worker
 let CACHE_NAME = 'site-static-v1'
 let dynamiCcache = 'site-dynamic-v1'
-let assets = [
-    '/',
-    '/static/js/bundle.js',
-    '/static/js/main.chunk.js',
-    '/static/js/vendors~main.chunk.js',
-    '/favicon.ico',
-    '/logo192.png',
-    '/manifest.json',
-    'static/media/delete.604f17ae.svg'
-]
+let assets;
+if( this.location.hostname === 'localhost'){
+    assets = [
+        '/',
+        '/static/js/bundle.js',
+        '/static/js/main.chunk.js',
+        '/static/js/vendors~main.chunk.js',
+        '/favicon.ico',
+        '/logo192.png',
+        '/manifest.json',
+        'static/media/delete.604f17ae.svg'
+    ]
+} else {
+    assets = [
+        '/',
+        '/static/js/2.44609498.chunk.js',
+        '/static/js/main.23950579.chunk.js',
+        '/favicon.ico',
+        '/logo192.png',
+        '/manifest.json',
+        'static/media/delete.604f17ae.svg'
+    ]
+}
 
 this.addEventListener('install', event => {
     event.waitUntil(
