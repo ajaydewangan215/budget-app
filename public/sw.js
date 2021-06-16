@@ -21,7 +21,7 @@ if( this.location.hostname === 'localhost'){
         '/favicon.ico',
         '/logo192.png',
         '/manifest.json',
-        'static/media/delete.604f17ae.svg'
+        '/static/media/delete.604f17ae.svg'
     ]
 } else {
     assets = [
