@@ -17,5 +17,14 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script>
+        if ('serviceWorker' in navigator) {   
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('%PUBLIC_URL%/sw.js')
+            .then((reg) => console.log('Success:', reg.scope))
+            .catch((err) =>console.log('error:', err))
+          })  
+        }
+    </script>
   </body>
 </html>

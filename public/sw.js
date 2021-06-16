@@ -10,6 +10,7 @@
 
 // install service worker
 let CACHE_NAME = 'site-static-v1'
+let dynamiCcache = 'site-dynamic-v1'
 let assets = [
     '/',
     '/static/js/bundle.js',
@@ -26,16 +27,15 @@ this.addEventListener('install', event => {
         caches.open(CACHE_NAME)
             .then(cache => {
                 // Open a cache and cache our files
-                console.log('caching shell assets')
+                // console.log('caching shell assets')
                 return cache.addAll(assets)
             })
     )
 })
 
-
 // activate service worker
 this.addEventListener('activate', event => {
-    console.log('Service worker has been Activated')
+    // console.log('Service worker has been Activated')
     event.waitUntil(
         caches.keys().then(keys => {
             console.log(keys);
@@ -56,7 +56,12 @@ this.addEventListener('fetch', event => {
         event.respondWith(
             caches.match(event.request).then((response) => {
                 // console.log('fetch caches')
-                return response || fetch(event.request).catch(e => console.log('Error matching cache', e))
+                return response || fetch(event.request).then(fetchRes => {
+                    return caches.open(dynamiCcache).then(cache => {
+                        cache.put(event.request.url, fetchRes.clone())
+                        return fetchRes
+                    })
+                }).catch(e => console.log('Error matching cache', e))
             })
         );
     }

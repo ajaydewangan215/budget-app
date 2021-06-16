@@ -24,7 +24,7 @@ const AddTransaction = () => {
                 itemAmount
             }
             AddData(newTransaction)
-            setTransaction({transactionType:'', itemText:'', itemAmount:''})
+            setTransaction({transactionType:transaction.transactionType, itemText:'', itemAmount:''})
         }
     }
 
