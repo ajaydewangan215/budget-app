@@ -24,8 +24,7 @@ if( this.location.hostname === 'localhost'){
         '/static/media/delete.604f17ae.svg'
     ]
 } else {
-    assets = [
-        '/',        
+    assets = [              
         '/budget-app/static/css/main.46b4e021.chunk.css',
         '/budget-app/static/js/2.44609498.chunk.js',
         '/budget-app/static/js/main.9e9bfe7c.chunk.js',
