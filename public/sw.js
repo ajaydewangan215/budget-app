@@ -25,8 +25,7 @@ if( this.location.hostname === 'localhost'){
     ]
 } else {
     assets = [
-        '/',
-        'https://ajaydewangan215.github.io',
+        '/',        
         '/budget-app/static/css/main.46b4e021.chunk.css',
         '/budget-app/static/js/2.44609498.chunk.js',
         '/budget-app/static/js/main.23950579.chunk.js',
