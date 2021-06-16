@@ -26,12 +26,13 @@ if( this.location.hostname === 'localhost'){
 } else {
     assets = [
         '/',
-        '/static/js/2.44609498.chunk.js',
-        '/static/js/main.23950579.chunk.js',
-        '/favicon.ico',
-        '/logo192.png',
-        '/manifest.json',
-        'static/media/delete.604f17ae.svg'
+        '/budget-app/static/css/main.46b4e021.chunk.css',
+        '/budget-app/static/js/2.44609498.chunk.js',
+        '/budget-app/static/js/main.23950579.chunk.js',
+        '/budget-app/favicon.ico',
+        '/budget-app/logo192.png',
+        '/budget-app/manifest.json',
+        '/budget-app/static/media/delete.604f17ae.svg'
     ]
 }
 
