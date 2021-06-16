@@ -3,11 +3,6 @@
   "name": "BudgetApp",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64",
-      "type": "image/x-icon"
-    },
-    {
       "src": "logo192.png",
       "type": "image/png",
       "sizes": "192x192"
@@ -18,6 +13,7 @@
       "sizes": "512x512"
     }
   ],
+  "scope": ".",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
